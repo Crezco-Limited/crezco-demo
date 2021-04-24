@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
               Generate invoices, get paid quick,
               <br />
               powered by&nbsp;
-              <a href="https://crezco.com" class="border-b border-b-2">
+              <a href="https://crezco.com" className="border-b border-b-2">
                 Crezco
               </a>
             </p>
@@ -33,26 +34,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t divide-x bg-white">
-        <a
-          className="px-4"
-          href="https://jonheslop.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Built by Jon Heslop
-        </a>
-        <a
-          className="px-4 flex items-center justify-center"
-          href="https://vercel.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }

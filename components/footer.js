@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex items-center justify-center w-full h-24 border-t divide-x bg-white">
+    <footer className="flex items-center justify-center w-full h-24 border-t divide-x bg-white mt-16">
       <a
         className="px-4"
         href="https://jonheslop.com"

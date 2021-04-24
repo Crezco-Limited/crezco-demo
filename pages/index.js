@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Button from "@/components/button";
 
 export default function Home() {
   return (
@@ -17,9 +18,7 @@ export default function Home() {
             <p className="text-lg">
               To get started connect your bank to Crezco.
             </p>
-            <button className="mt-16 p-4 bg-indigo-400 font-medium text-lg text-white rounded-lg hover:bg-indigo-600 focus:bg-indigo-600">
-              Connect with Crezco
-            </button>
+            <Button>Connect Crezco</Button>
           </div>
         </div>
       </main>

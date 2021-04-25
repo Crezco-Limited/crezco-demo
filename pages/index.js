@@ -15,7 +15,7 @@ export default function Home() {
         <div className="border rounded-lg max-w-lg">
           <Header />
           <div className="p-8 bg-white rounded-b-lg">
-            <p className="text-lg">
+            <p className="text-lg mb-8">
               To get started connect your bank to Crezco.
             </p>
             <Button href="https://app.sandbox.crezco.com/onboarding?partner_id=heslop-sandbox&redirect_uri=https://crezco-demo.jonheslop.vercel.app/create-invoice">

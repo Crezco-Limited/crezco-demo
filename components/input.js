@@ -11,7 +11,7 @@ export default function Input({
         prefix && "pl-8"
       } border rounded focus:outline-none focus:ring focus:border-indigo-400 text-lg w-full`}
       placeholder={placeholder}
-      inputmode={type === "number" ? "numeric" : "text"}
+      inputMode={type === "number" ? "numeric" : "text"}
       pattern="[0-9]*"
       type="text"
       name={name}
@@ -21,7 +21,7 @@ export default function Input({
 
   return (
     <div className="my-4">
-      <label for={name} className="block mb-2">
+      <label htmlFor={name} className="block mb-2">
         {label}
       </label>
       {prefix && (

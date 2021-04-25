@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Button from "@/components/button";
+import Input from "@/components/input";
 
 const errorProps = {
   error: "User could not be found",
@@ -56,14 +57,28 @@ export default function CreateInvoice({ user, error }) {
       <main className="flex flex-col items-center justify-center flex-1 px-20">
         <div className="border rounded-lg max-w-lg">
           <Header />
-          <div className="p-8 bg-white rounded-b-lg">
-            <p className="text-lg">Hello {user.displayName}</p>
+          <form className="p-8 bg-white rounded-b-lg">
+            <p className="text-lg font-bold">Hello {user.displayName}</p>
             {error && (
               <p className="text-lg text-red-500 mt-4 bg-red-50 p-1">
                 User details could not be found
               </p>
             )}
-          </div>
+
+            <Input
+              label="Enter your amount"
+              name="amount"
+              type="number"
+              placeholder={100}
+              prefix="&pound;"
+            />
+            <Input
+              label="Enter your reference"
+              name="reference"
+              placeholder="REF-123"
+            />
+            <Button type="submit">Create payment link</Button>
+          </form>
         </div>
       </main>
       <Footer />

@@ -3,47 +3,10 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Button from "@/components/button";
 import Input from "@/components/input";
-
-const errorProps = {
-  error: "User could not be found",
-  user: {
-    firstName: "Stranger",
-    lastName: "McStrangerFace",
-    displayName: "Stranger",
-    eMail: "name@email.com",
-  },
-};
+import getUserProps from "@/lib/get-user-props";
 
 export async function getServerSideProps({ query }) {
-  if (query["user-id"] === undefined) {
-    return {
-      props: errorProps,
-    };
-  }
-
-  const payload = await fetch(
-    `https://api.sandbox.crezco.com/v1/users/${query["user-id"]}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "X-Crezco-Key": process.env.CREZCO_API_KEY,
-      },
-    }
-  );
-
-  if (payload.status !== 200) {
-    return {
-      props: errorProps,
-    };
-  }
-
-  const user = await payload.json();
-
-  return {
-    props: {
-      user,
-    },
-  };
+  return await getUserProps(query);
 }
 
 export default function CreateInvoice({ user, error }) {

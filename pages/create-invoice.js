@@ -58,7 +58,7 @@ export default function CreateInvoice({ user, error }) {
         <div className="border rounded-lg max-w-lg">
           <Header />
           <form className="p-8 bg-white rounded-b-lg">
-            <p className="text-lg font-bold">Hello {user.displayName}</p>
+            <p className="text-lg font-medium">Hello {user.displayName}</p>
             {error && (
               <p className="text-lg text-red-500 mt-4 bg-red-50 p-1">
                 User details could not be found

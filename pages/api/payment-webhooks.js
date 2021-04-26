@@ -13,7 +13,7 @@ export default function paymentWebhooks(req, res) {
   if (req.method === "POST") {
     console.log(req.body);
     const { id, eventType } = req.body;
-    pusher.trigger(`payments-${id}`, eventType, {
+    pusher.trigger(`payments-${id}`, `event-${eventType}`, {
       meta: req.body,
     });
   }

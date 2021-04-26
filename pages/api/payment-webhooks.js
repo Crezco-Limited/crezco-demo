@@ -1,7 +1,7 @@
 import Pusher from "pusher";
 const { PUSHER_API_KEY, PUSHER_API_SECRET } = process.env;
 
-export default function paymentWebhooks(req, res) {
+export default async function paymentWebhooks(req, res) {
   const pusher = new Pusher({
     appId: "1194378",
     key: PUSHER_API_KEY,
@@ -11,13 +11,13 @@ export default function paymentWebhooks(req, res) {
   });
 
   if (req.method === "POST") {
-    req.body.map((webhook) => {
+    req.body.map(async (webhook) => {
       console.log(
         "trigger with:",
         webhook.metadata.payDemandId,
         webhook.eventType
       );
-      return pusher.trigger(
+      return await pusher.trigger(
         `payments-${webhook.metadata.payDemandId}`,
         `event-${webhook.eventType}`,
         {

@@ -21,7 +21,7 @@ export default function Invoice({ demand, error }) {
   useEffect(() => {
     // Subscribe to channel for this payDemandId
     const channel = pusher.subscribe(`payments-${demand.payDemandId}`);
-    channel.bind("event-PaymentCompleted", (data) => {
+    channel.bind("event-paymentCompleted", (data) => {
       setPaid(true);
     });
     return () => {

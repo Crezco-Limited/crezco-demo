@@ -11,7 +11,6 @@ export default function paymentWebhooks(req, res) {
   });
 
   if (req.method === "POST") {
-    console.log(req.body);
     req.body.map((webhook) => {
       console.log(
         "trigger with:",

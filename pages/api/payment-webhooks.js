@@ -17,7 +17,7 @@ export default function paymentWebhooks(req, res) {
         webhook.metadata.payDemandId,
         webhook.eventType
       );
-      pusher.trigger(
+      return pusher.trigger(
         `payments-${webhook.metadata.payDemandId}`,
         `event-${webhook.eventType}`,
         {

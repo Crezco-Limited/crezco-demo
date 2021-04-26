@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/head";
 import Header from "@/components/header";
@@ -5,17 +6,23 @@ import Footer from "@/components/footer";
 import Button from "@/components/button";
 import Input from "@/components/input";
 import getUserProps from "@/lib/get-user-props";
+import createPayDemand from "@/lib/create-pay-demand";
 
 export async function getServerSideProps({ query }) {
   return await getUserProps(query);
 }
 
 export default function CreateInvoice({ user, error }) {
+  const router = useRouter();
   const [amount, setAmount] = useState();
   const [reference, setReference] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    createPayDemand(user.id, amount, reference).then((id) => {
+      router.push(`/invoice/${id}`);
+    });
   }
 
   return (
@@ -44,6 +51,7 @@ export default function CreateInvoice({ user, error }) {
               prefix="&pound;"
               onChange={(e) => setAmount(e.target.value)}
               onBlur={(e) => setAmount(e.target.value)}
+              required="required"
             />
             <Input
               label="Enter your reference"
@@ -51,6 +59,7 @@ export default function CreateInvoice({ user, error }) {
               placeholder="REF-123"
               onChange={(e) => setReference(e.target.value)}
               onBlur={(e) => setReference(e.target.value)}
+              required="required"
             />
             <Button type="submit">Create payment link</Button>
           </form>

@@ -13,26 +13,12 @@ export default async function paymentWebhooks(req, res) {
   if (req.method === "POST") {
     await Promise.all(
       req.body.map(async (webhook) => {
-        console.log(
-          "trigger with:",
-          webhook.metadata.payDemandId,
-          webhook.eventType
-        );
         return await pusher.trigger(
           `payments-${webhook.metadata.payDemandId}`,
-          `event-${webhook.eventType}`,
-          {
-            meta: req.body,
-          }
+          `event-${webhook.eventType}`
         );
       })
     );
-  }
-
-  if (req.method === "GET") {
-    await pusher.trigger("test", "event", {
-      hello: "world",
-    });
   }
 
   res.status(200).json({ recieved: req.method });

@@ -28,5 +28,11 @@ export default function paymentWebhooks(req, res) {
     });
   }
 
+  if (req.method === "GET") {
+    pusher.trigger(`test`, `event`, {
+      hello: "world",
+    });
+  }
+
   res.status(200).json({ recieved: true });
 }

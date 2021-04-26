@@ -1,23 +1,23 @@
 import Pusher from "pusher";
 const { PUSHER_API_KEY, PUSHER_API_SECRET } = process.env;
 
-export default async function paymentWebhooks(req, res) {
-  const pusher = new Pusher({
-    appId: "1194378",
-    key: PUSHER_API_KEY,
-    secret: PUSHER_API_SECRET,
-    cluster: "eu",
-    useTLS: true,
-  });
+const pusher = new Pusher({
+  appId: "1194378",
+  key: PUSHER_API_KEY,
+  secret: PUSHER_API_SECRET,
+  cluster: "eu",
+  useTLS: true,
+});
 
+export default async function paymentWebhooks(req, res) {
   if (req.method === "POST") {
-    await req.body.map(async (webhook) => {
+    req.body.forEach(async (webhook) => {
       console.log(
         "trigger with:",
         webhook.metadata.payDemandId,
         webhook.eventType
       );
-      return await pusher.trigger(
+      await pusher.trigger(
         `payments-${webhook.metadata.payDemandId}`,
         `event-${webhook.eventType}`,
         {

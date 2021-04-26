@@ -4,6 +4,7 @@ export default function Input({
   type = "text",
   prefix = null,
   placeholder = "",
+  ...otherProps
 }) {
   const input = (
     <input
@@ -12,10 +13,11 @@ export default function Input({
       } border rounded focus:outline-none focus:ring focus:border-indigo-400 text-lg w-full`}
       placeholder={placeholder}
       inputMode={type === "number" ? "numeric" : "text"}
-      pattern="[0-9]*"
+      pattern={type === "number" ? "[0-9]*" : undefined}
       type="text"
       name={name}
       id={name}
+      {...otherProps}
     />
   );
 

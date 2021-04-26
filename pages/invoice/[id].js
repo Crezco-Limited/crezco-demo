@@ -55,7 +55,7 @@ export default function Invoice({ demand, error }) {
           <dd className="">&pound;{demand.amount}</dd>
         </dl>
         <figure className="my-8">
-          <QRCode style={{ width: 256 }} value={demand.paymentUri} />
+          <QRCode className="max-w-xs" value={demand.paymentUri} />
         </figure>
         <p className="text-xs">
           Link:{" "}

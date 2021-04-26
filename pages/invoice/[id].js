@@ -61,6 +61,7 @@ export default function Invoice({ demand, error }) {
           Link:{" "}
           <a
             href={demand.paymentUri}
+            target="_blank"
             className="underline text-indigo-400 hover:text-indigo-500 focus:text-indigo-500"
           >
             {demand.paymentUri}

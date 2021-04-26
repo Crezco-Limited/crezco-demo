@@ -13,10 +13,18 @@ export default function paymentWebhooks(req, res) {
   if (req.method === "POST") {
     console.log(req.body);
     req.body.map((webhook) => {
-      console.log("trigger with:", webhook.id, webhook.eventType);
-      pusher.trigger(`payments-${webhook.id}`, `event-${webhook.eventType}`, {
-        meta: req.body,
-      });
+      console.log(
+        "trigger with:",
+        webhook.metadata.payDemandId,
+        webhook.eventType
+      );
+      pusher.trigger(
+        `payments-${webhook.metadata.payDemandId}`,
+        `event-${webhook.eventType}`,
+        {
+          meta: req.body,
+        }
+      );
     });
   }
 

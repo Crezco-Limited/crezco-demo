@@ -23,7 +23,6 @@ export default function CreateInvoice({ user, error }) {
     setLoading(true);
 
     createPayDemand(user.id, amount, reference).then((id) => {
-      setLoading(false);
       router.push(`/invoice/${id}`);
     });
   }

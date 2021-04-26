@@ -12,9 +12,11 @@ const pusher = new Pusher({
 export default function paymentWebhooks(req, res) {
   if (req.method === "POST") {
     console.log(req.body);
-    const { id, eventType } = req.body;
-    pusher.trigger(`payments-${id}`, `event-${eventType}`, {
-      meta: req.body,
+    req.body.map((webhook) => {
+      console.log("trigger with:", webhook.id, webhook.eventType);
+      pusher.trigger(`payments-${webhook.id}`, `event-${webhook.eventType}`, {
+        meta: req.body,
+      });
     });
   }
 

@@ -11,7 +11,7 @@ export default async function paymentWebhooks(req, res) {
   });
 
   if (req.method === "POST") {
-    req.body.map(async (webhook) => {
+    await req.body.map(async (webhook) => {
       console.log(
         "trigger with:",
         webhook.metadata.payDemandId,
@@ -28,7 +28,7 @@ export default async function paymentWebhooks(req, res) {
   }
 
   if (req.method === "GET") {
-    pusher.trigger("test", "event", {
+    await pusher.trigger("test", "event", {
       hello: "world",
     });
   }

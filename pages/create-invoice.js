@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Button from "@/components/button";
 import Input from "@/components/input";
+import Loading from "@/components/loading";
 import getUserProps from "@/lib/get-user-props";
 import createPayDemand from "@/lib/create-pay-demand";
 
@@ -16,11 +17,14 @@ export default function CreateInvoice({ user, error }) {
   const router = useRouter();
   const [amount, setAmount] = useState();
   const [reference, setReference] = useState();
+  const [loading, setLoading] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
 
     createPayDemand(user.id, amount, reference).then((id) => {
+      setLoading(false);
       router.push(`/invoice/${id}`);
     });
   }
@@ -32,6 +36,7 @@ export default function CreateInvoice({ user, error }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Loading show={loading} />
       <main className="flex flex-col items-center justify-center flex-1 px-20">
         <div className="border rounded-lg max-w-lg">
           <Header />

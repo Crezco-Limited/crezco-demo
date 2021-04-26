@@ -11,20 +11,22 @@ const pusher = new Pusher({
 
 export default async function paymentWebhooks(req, res) {
   if (req.method === "POST") {
-    req.body.forEach(async (webhook) => {
-      console.log(
-        "trigger with:",
-        webhook.metadata.payDemandId,
-        webhook.eventType
-      );
-      await pusher.trigger(
-        `payments-${webhook.metadata.payDemandId}`,
-        `event-${webhook.eventType}`,
-        {
-          meta: req.body,
-        }
-      );
-    });
+    await Promise.all(
+      req.body.map(async (webhook) => {
+        console.log(
+          "trigger with:",
+          webhook.metadata.payDemandId,
+          webhook.eventType
+        );
+        return await pusher.trigger(
+          `payments-${webhook.metadata.payDemandId}`,
+          `event-${webhook.eventType}`,
+          {
+            meta: req.body,
+          }
+        );
+      })
+    );
   }
 
   if (req.method === "GET") {

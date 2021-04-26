@@ -15,7 +15,8 @@ export default async function paymentWebhooks(req, res) {
       req.body.map(async (webhook) => {
         return await pusher.trigger(
           `payments-${webhook.metadata.payDemandId}`,
-          `event-${webhook.eventType}`
+          `event-${webhook.eventType}`,
+          {}
         );
       })
     );

@@ -21,6 +21,8 @@ To get realtime updates of payment status
 
 ## How to use
 
+Create an `.env.local` file using `.env.example` as a template
+
 `yarn dev`
 Starts the development server.
 

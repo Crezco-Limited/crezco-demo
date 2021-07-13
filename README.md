@@ -7,6 +7,11 @@ A demo app which allows a user to:
 - Create Crezco payment link and QR
 - Recieve notification of payment via a webhook
 
+## Prerequisites
+
+- A Crezco sandbox API key
+- A webhook set up for all payment events
+
 ## How to use
 
 `yarn dev`
@@ -18,7 +23,7 @@ Builds the app for production.
 `yarn start`
 Runs the built app in production mode.
 
-# User journey
+## User journey
 
 1. User is passed to Crezco to create an account - [pages/index.js#L30-L32](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/index.js#L30-L32)
 2. User is passed back to demo app with user UUID as query param

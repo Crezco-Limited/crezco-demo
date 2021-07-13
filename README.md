@@ -1,6 +1,6 @@
 # Crezco Demo App
 
-A demo app which allows a user to:
+A [Next.js](https://nextjs.org/) demo app which allows a user to:
 
 - Onboard to Crezco
 - Create an Invoice
@@ -33,14 +33,12 @@ Runs the built app in production mode.
   - This info is used to create a Pay Demand - [lib/create-pay-demand.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/lib/create-pay-demand.js)
 4. Pay demand details presented to user — [pages/invoice/\[id\].js](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js)
   - Pay demand details fetched from api — [lib/get-pay-demand.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/lib/get-pay-demand.js)
-  - Page uses [Pusher] to listen on websocket for payment event. - [pages/invoice/\[id\].js#L16-L31](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js#L16-L31)
+  - Page uses [Pusher](https://www.pusher.com) to listen on websocket for payment event. - [pages/invoice/\[id\].js#L16-L31](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js#L16-L31)
   - A webhook has been configured to POST to an API endpoint when the payment is made which triggers a event - [pages/api/payment-webhooks.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/api/payment-webhooks.js)
 
 ## Further reading
 
-[Crezco developer docs](https://documentation.crezco.com)
-
-
-
-[Pusher]: https://www.pusher.com
+- [Crezco developer docs](https://documentation.crezco.com)
+- [Next.js docs](https://nextjs.org/docs/getting-started)
+- [Tailwind CSS](https://tailwindcss.com/)
 

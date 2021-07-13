@@ -2,6 +2,8 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import Button from "@/components/button";
 
+const {NEXT_PUBLIC_APP_REDIRECT_URI} = process.env;
+
 export default function Home() {
   return (
     <Layout title="Welcome">
@@ -27,7 +29,9 @@ export default function Home() {
         <p className="text-lg my-8">
           To get started connect your bank to Crezco.
         </p>
-        <Button href="https://app.sandbox.crezco.com/onboarding?partner_id=heslop-sandbox&redirect_uri=https://crezco-demo.jonheslop.vercel.app/create-invoice">
+        <Button
+          href={`https://app.sandbox.crezco.com/onboarding?partner_id=heslop-sandbox&redirect_uri=${NEXT_PUBLIC_APP_REDIRECT_URI}/create-invoice`}
+        >
           Connect Crezco
         </Button>
       </div>

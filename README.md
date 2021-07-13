@@ -10,8 +10,14 @@ A [Next.js](https://nextjs.org/) demo app which allows a user to:
 Learn more here — https://documentation.crezco.com/docs/partner/docs/Tutorials/F%20Full%20Onboarding.md
 ## Prerequisites
 
+To make the demo work:
+
 - A Crezco sandbox API key
-- A webhook set up for all payment events - https://documentation.crezco.com/docs/partner/docs/Tutorials/Web-hooks.md#test-a-webhook
+
+To get realtime updates of payment status
+
+- A webhook set up for all payment events - https://documentation.crezco.com/docs/partner/docs/Tutorials/Web-hooks.md#add-a-webhook
+- A [Pusher] account (free is fine) with a Channels app with API key/secret pair
 
 ## How to use
 
@@ -33,7 +39,7 @@ Runs the built app in production mode.
   - This info is used to create a Pay Demand - [lib/create-pay-demand.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/lib/create-pay-demand.js)
 4. Pay demand details presented to user — [pages/invoice/\[id\].js](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js)
   - Pay demand details fetched from api — [lib/get-pay-demand.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/lib/get-pay-demand.js)
-  - Page uses [Pusher](https://www.pusher.com) to listen on websocket for payment event. - [pages/invoice/\[id\].js#L16-L31](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js#L16-L31)
+  - Page uses [Pusher] to listen on websocket for payment event. - [pages/invoice/\[id\].js#L16-L31](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js#L16-L31)
   - A webhook has been configured to POST to an API endpoint when the payment is made which triggers a event - [pages/api/payment-webhooks.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/api/payment-webhooks.js)
 
 ## Further reading
@@ -42,3 +48,4 @@ Runs the built app in production mode.
 - [Next.js docs](https://nextjs.org/docs/getting-started)
 - [Tailwind CSS](https://tailwindcss.com/)
 
+[Pusher]: https://www.pusher.com

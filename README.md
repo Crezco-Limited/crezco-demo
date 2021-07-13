@@ -5,7 +5,7 @@ A demo app which allows a user to:
 - Onboard to Crezco
 - Create an Invoice
 - Create Crezco payment link and QR
-- Recieve notification of payment via a webhook
+- Recieve realtime notification of payment via websockets and a webhook
 
 Learn more here — https://documentation.crezco.com/docs/partner/docs/Tutorials/F%20Full%20Onboarding.md
 ## Prerequisites

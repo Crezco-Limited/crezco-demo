@@ -7,10 +7,11 @@ A demo app which allows a user to:
 - Create Crezco payment link and QR
 - Recieve notification of payment via a webhook
 
+Learn more here — https://documentation.crezco.com/docs/partner/docs/Tutorials/F%20Full%20Onboarding.md
 ## Prerequisites
 
 - A Crezco sandbox API key
-- A webhook set up for all payment events
+- A webhook set up for all payment events - https://documentation.crezco.com/docs/partner/docs/Tutorials/Web-hooks.md#test-a-webhook
 
 ## How to use
 
@@ -35,5 +36,11 @@ Runs the built app in production mode.
   - Page uses [Pusher] to listen on websocket for payment event. - [pages/invoice/\[id\].js#L16-L31](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js#L16-L31)
   - A webhook has been configured to POST to an API endpoint when the payment is made which triggers a event - [pages/api/payment-webhooks.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/api/payment-webhooks.js)
 
+## Further reading
+
+[Crezco developer docs](https://documentation.crezco.com)
+
+
 
 [Pusher]: https://www.pusher.com
+

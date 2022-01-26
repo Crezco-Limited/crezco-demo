@@ -44,7 +44,7 @@ Runs the built app in production mode.
   - Page uses [Pusher] to listen on websocket for payment event. - [pages/invoice/\[id\].js#L16-L31](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/invoice/%5Bid%5D.js#L16-L31)
   - A webhook has been configured to POST to an API endpoint when the payment is made which triggers a event - [pages/api/payment-webhooks.js](https://github.com/Crezco-Limited/crezco-demo/blob/main/pages/api/payment-webhooks.js)
 
-> **NB:** If trying out on [https://crezco-demo.vercel.app/] be sure to choose _Yapily Mock_ as your bank, it requires no logins.
+> **NB:** When using the demo, be sure to choose _Yapily Mock_ as your bank, it requires no logins.
 
 ## Further reading
 
